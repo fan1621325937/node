@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Node.js学习指南
+    </title>
+</head>
+
+<body>
+    <h1>
+        &lt;h1&gt;Node.js 学习指南11&lt;/h1&gt;
+&lt;h2&gt;📚 项目概述11&lt;/h2&gt;
+&lt;p&gt;这是一个全面的 Node.js 学习项目，包含了从基础到高级的各种模块和实践案例。通过本项目，你可以系统地学习 Node.js 的核心概念、内置模块、高级特性以及实际应用。&lt;/p&gt;
+&lt;h2&gt;🎯 学习目标&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;掌握 Node.js 基础概念和运行机制&lt;/li&gt;
+&lt;li&gt;熟练使用 Node.js 内置模块&lt;/li&gt;
+&lt;li&gt;理解异步编程和事件驱动模型&lt;/li&gt;
+&lt;li&gt;学会文件系统操作和网络编程&lt;/li&gt;
+&lt;li&gt;掌握进程管理和集群应用&lt;/li&gt;
+&lt;li&gt;了解视频处理和多媒体应用开发&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;📁 项目结构&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;nodejs-learning/
+├── README.md                 # 项目说明文档
+├── package.json             # 项目配置文件
+├── index.js                 # 主入口文件
+├── index.html              # 前端页面
+├── buffer/                 # Buffer 模块学习
+├── child_process/          # 子进程模块学习
+├── cluster/               # 集群模块学习
+├── crypto/                # 加密模块学习
+├── event-emitter/         # 事件发射器学习
+├── ffmpeg/               # FFmpeg 视频处理学习
+├── fs/                   # 文件系统模块学习
+├── global/               # 全局对象学习
+├── http/                 # HTTP 模块学习
+├── path/                 # 路径模块学习
+├── stream/               # 流模块学习
+├── url/                  # URL 模块学习
+└── util/                 # 工具模块学习
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;🚀 快速开始&lt;/h2&gt;
+&lt;h3&gt;环境要求&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Node.js 14.0 或更高版本&lt;/li&gt;
+&lt;li&gt;npm 6.0 或更高版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;安装依赖&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;运行示例&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# 运行主程序
+node index.js
+
+# 运行特定模块示例
+node fs/index.js
+node http/index.js
+node crypto/index.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;📖 学习模块详解&lt;/h2&gt;
+&lt;h3&gt;1. 核心基础模块&lt;/h3&gt;
+&lt;h4&gt;1.1 文件系统 (fs)&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;位置&lt;/strong&gt;: &lt;code&gt;fs/index.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;文件系统模块提供了与文件系统交互的 API，支持同步和异步操作。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要功能&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文件读取和写入&lt;/li&gt;
+&lt;li&gt;目录操作&lt;/li&gt;
+&lt;li&gt;文件状态查询&lt;/li&gt;
+&lt;li&gt;文件监听&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;核心方法&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// 异步读取文件
+fs.readFile(&amp;#39;file.txt&amp;#39;, &amp;#39;utf8&amp;#39;, (err, data) =&amp;gt; {
+    if (err) throw err;
+    console.log(data);
+});
+
+// 同步读取文件
+const data = fs.readFileSync(&amp;#39;file.txt&amp;#39;, &amp;#39;utf8&amp;#39;);
+
+// 写入文件
+fs.writeFile(&amp;#39;output.txt&amp;#39;, &amp;#39;Hello World&amp;#39;, (err) =&amp;gt; {
+    if (err) throw err;
+    console.log(&amp;#39;文件已保存&amp;#39;);
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;1.2 HTTP 模块 (http)&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;位置&lt;/strong&gt;: &lt;code&gt;http/index.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;HTTP 模块用于创建 HTTP 服务器和客户端。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要功能&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建 HTTP 服务器&lt;/li&gt;
+&lt;li&gt;处理请求和响应&lt;/li&gt;
+&lt;li&gt;设置路由&lt;/li&gt;
+&lt;li&gt;处理不同的 HTTP 方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;基本服务器示例&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const http = require(&amp;#39;http&amp;#39;);
+
+const server = http.createServer((req, res) =&amp;gt; {
+    res.writeHead(200, { &amp;#39;Content-Type&amp;#39;: &amp;#39;text/html; charset=utf-8&amp;#39; });
+    res.end(&amp;#39;Hello World!&amp;#39;);
+});
+
+server.listen(3000, () =&amp;gt; {
+    console.log(&amp;#39;服务器运行在 http://localhost:3000&amp;#39;);
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;1.3 路径模块 (path)&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;位置&lt;/strong&gt;: &lt;code&gt;path/index.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;路径模块提供了处理文件和目录路径的实用工具。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要方法&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;path.join()&lt;/code&gt; - 连接路径&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;path.resolve()&lt;/code&gt; - 解析绝对路径&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;path.basename()&lt;/code&gt; - 获取文件名&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;path.dirname()&lt;/code&gt; - 获取目录名&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;path.extname()&lt;/code&gt; - 获取文件扩展名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. 数据处理模块&lt;/h3&gt;
+&lt;h4&gt;2.1 Buffer 模块&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;位置&lt;/strong&gt;: &lt;code&gt;buffer/index.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Buffer 类用于处理二进制数据，在 Node.js 中处理文件、网络数据时经常使用。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要功能&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建和操作二进制数据&lt;/li&gt;
+&lt;li&gt;字符串与 Buffer 的转换&lt;/li&gt;
+&lt;li&gt;Buffer 的拼接和切片&lt;/li&gt;
+&lt;li&gt;数值的读写操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// 创建 Buffer
+const buf1 = Buffer.from(&amp;#39;Hello&amp;#39;);
+const buf2 = Buffer.alloc(10);
+
+// 字符串转换
+const str = buf1.toString(&amp;#39;utf8&amp;#39;);
+
+// Buffer 操作
+const combined = Buffer.concat([buf1, buf2]);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;2.2 流模块 (stream)&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;位置&lt;/strong&gt;: &lt;code&gt;stream/index.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;流是 Node.js 中处理流式数据的抽象接口，用于高效处理大量数据。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;流的类型&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可读流 (Readable)&lt;/li&gt;
+&lt;li&gt;可写流 (Writable)&lt;/li&gt;
+&lt;li&gt;双工流 (Duplex)&lt;/li&gt;
+&lt;li&gt;转换流 (Transform)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;2.3 加密模块 (crypto)&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;位置&lt;/strong&gt;: &lt;code&gt;crypto/index.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;加密模块提供了加密功能，包括哈希、HMAC、加密、解密、签名和验证等。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要功能&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;哈希函数 (MD5, SHA系列)&lt;/li&gt;
+&lt;li&gt;HMAC 认证&lt;/li&gt;
+&lt;li&gt;对称加密 (AES)&lt;/li&gt;
+&lt;li&gt;非对称加密 (RSA)&lt;/li&gt;
+&lt;li&gt;数字签名&lt;/li&gt;
+&lt;li&gt;随机数生成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3. 高级模块&lt;/h3&gt;
+&lt;h4&gt;3.1 子进程模块 (child_process)&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;位置&lt;/strong&gt;: &lt;code&gt;child_process/index.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;子进程模块允许你执行其他程序和命令，实现多进程编程。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要方法&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;spawn()&lt;/code&gt; - 启动子进程&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;exec()&lt;/code&gt; - 执行命令&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;execFile()&lt;/code&gt; - 执行文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fork()&lt;/code&gt; - 创建子进程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;3.2 集群模块 (cluster)&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;位置&lt;/strong&gt;: &lt;code&gt;cluster/index.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;集群模块允许你创建共享服务器端口的子进程，充分利用多核系统。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要功能&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建工作进程&lt;/li&gt;
+&lt;li&gt;负载均衡&lt;/li&gt;
+&lt;li&gt;进程间通信&lt;/li&gt;
+&lt;li&gt;故障恢复&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;3.3 事件发射器 (EventEmitter)&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;位置&lt;/strong&gt;: &lt;code&gt;event-emitter/index.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;EventEmitter 是 Node.js 事件系统的核心，许多 Node.js 对象都继承自它。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要方法&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;on()&lt;/code&gt; - 监听事件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;emit()&lt;/code&gt; - 触发事件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;once()&lt;/code&gt; - 一次性监听&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;removeListener()&lt;/code&gt; - 移除监听器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4. 工具模块&lt;/h3&gt;
+&lt;h4&gt;4.1 工具模块 (util)&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;位置&lt;/strong&gt;: &lt;code&gt;util/index.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;util 模块提供了一系列实用工具函数，主要用于支持 Node.js 内部 API。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要功能&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;字符串格式化&lt;/li&gt;
+&lt;li&gt;对象检查和类型判断&lt;/li&gt;
+&lt;li&gt;继承实现&lt;/li&gt;
+&lt;li&gt;Promise 化回调函数&lt;/li&gt;
+&lt;li&gt;调试工具&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;4.2 URL 模块&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;位置&lt;/strong&gt;: &lt;code&gt;url/index.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;URL 模块提供了 URL 解析和构建的实用工具。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要功能&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;URL 解析和构建&lt;/li&gt;
+&lt;li&gt;查询参数处理&lt;/li&gt;
+&lt;li&gt;URL 编码和解码&lt;/li&gt;
+&lt;li&gt;相对路径解析&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;4.3 全局对象 (global)&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;位置&lt;/strong&gt;: &lt;code&gt;global/index.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;全局对象包含了 Node.js 环境中的全局变量和函数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要全局对象&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;global&lt;/code&gt; - 全局命名空间&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;process&lt;/code&gt; - 进程对象&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;__dirname&lt;/code&gt; - 当前目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;__filename&lt;/code&gt; - 当前文件名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;5. 特色应用模块&lt;/h3&gt;
+&lt;h4&gt;5.1 FFmpeg 视频处理&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;位置&lt;/strong&gt;: &lt;code&gt;ffmpeg/index.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这是一个完整的视频处理模块，展示了如何使用 Node.js 结合 FFmpeg 进行视频处理。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要功能&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;视频格式转换&lt;/li&gt;
+&lt;li&gt;音频提取&lt;/li&gt;
+&lt;li&gt;视频裁剪和合并&lt;/li&gt;
+&lt;li&gt;添加水印&lt;/li&gt;
+&lt;li&gt;删除水印&lt;/li&gt;
+&lt;li&gt;视频压缩&lt;/li&gt;
+&lt;li&gt;视频旋转&lt;/li&gt;
+&lt;li&gt;添加字幕&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// 视频格式转换
+ffmpeg -i input.mp4 -c:v libx264 -c:a aac output.mp4
+
+// 添加水印
+ffmpeg -i input.mp4 -i watermark.png -filter_complex &amp;quot;overlay=10:10&amp;quot; output.mp4
+
+// 删除水印
+ffmpeg -i input.mp4 -vf &amp;quot;delogo=x=10:y=10:w=100:h=50&amp;quot; output.mp4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;🎓 学习路径建议&lt;/h2&gt;
+&lt;h3&gt;初级阶段 (1-2周)&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;基础概念&lt;/strong&gt;: 了解 Node.js 的特点和应用场景&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心模块&lt;/strong&gt;: 学习 fs, http, path 模块&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;异步编程&lt;/strong&gt;: 理解回调函数、Promise 和 async/await&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实践项目&lt;/strong&gt;: 创建简单的文件操作和 HTTP 服务器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;中级阶段 (2-3周)&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;数据处理&lt;/strong&gt;: 深入学习 Buffer, Stream, Crypto 模块&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;事件系统&lt;/strong&gt;: 掌握 EventEmitter 的使用&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具模块&lt;/strong&gt;: 学习 util, url 等实用工具&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实践项目&lt;/strong&gt;: 开发文件上传、数据加密等功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;高级阶段 (3-4周)&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;进程管理&lt;/strong&gt;: 学习 child_process, cluster 模块&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;性能优化&lt;/strong&gt;: 了解内存管理和性能监控&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特殊应用&lt;/strong&gt;: 学习 FFmpeg 视频处理等高级应用&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实践项目&lt;/strong&gt;: 开发多进程应用、视频处理服务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;🛠️ 实践练习&lt;/h2&gt;
+&lt;h3&gt;练习1: 文件管理器&lt;/h3&gt;
+&lt;p&gt;创建一个命令行文件管理器，支持：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文件和目录的创建、删除、重命名&lt;/li&gt;
+&lt;li&gt;文件内容的查看和编辑&lt;/li&gt;
+&lt;li&gt;文件搜索功能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;练习2: Web 服务器&lt;/h3&gt;
+&lt;p&gt;开发一个简单的 Web 服务器，包含：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;静态文件服务&lt;/li&gt;
+&lt;li&gt;API 接口&lt;/li&gt;
+&lt;li&gt;文件上传功能&lt;/li&gt;
+&lt;li&gt;用户认证&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;练习3: 数据处理工具&lt;/h3&gt;
+&lt;p&gt;构建数据处理工具，实现：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSV 文件解析&lt;/li&gt;
+&lt;li&gt;数据加密和解密&lt;/li&gt;
+&lt;li&gt;文件压缩和解压&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;练习4: 视频处理服务&lt;/h3&gt;
+&lt;p&gt;开发视频处理服务，支持：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;视频格式转换&lt;/li&gt;
+&lt;li&gt;视频压缩&lt;/li&gt;
+&lt;li&gt;添加水印&lt;/li&gt;
+&lt;li&gt;生成缩略图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;📚 学习资源&lt;/h2&gt;
+&lt;h3&gt;官方文档&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://nodejs.org/docs/&#34;&gt;Node.js 官方文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.npmjs.com/&#34;&gt;npm 官方文档&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;推荐书籍&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;《Node.js 实战》&lt;/li&gt;
+&lt;li&gt;《深入浅出 Node.js》&lt;/li&gt;
+&lt;li&gt;《Node.js 开发指南》&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;在线教程&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.runoob.com/nodejs/nodejs-tutorial.html&#34;&gt;Node.js 教程 - 菜鸟教程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/1022910821149312/1023025235359040&#34;&gt;Node.js 入门 - 廖雪峰&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🤝 贡献指南&lt;/h2&gt;
+&lt;p&gt;欢迎提交 Issue 和 Pull Request 来改进这个学习项目！&lt;/p&gt;
+&lt;h3&gt;贡献方式&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Fork 本项目&lt;/li&gt;
+&lt;li&gt;创建特性分支&lt;/li&gt;
+&lt;li&gt;提交更改&lt;/li&gt;
+&lt;li&gt;发起 Pull Request&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;📄 许可证&lt;/h2&gt;
+&lt;p&gt;本项目采用 MIT 许可证，详情请查看 LICENSE 文件。&lt;/p&gt;
+&lt;h2&gt;🎉 结语&lt;/h2&gt;
+&lt;p&gt;Node.js 是一个强大的 JavaScript 运行时环境，通过系统学习本项目中的各个模块，你将能够：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;掌握服务器端 JavaScript 开发&lt;/li&gt;
+&lt;li&gt;理解异步编程和事件驱动模型&lt;/li&gt;
+&lt;li&gt;具备开发高性能网络应用的能力&lt;/li&gt;
+&lt;li&gt;了解现代 Web 开发的最佳实践&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;祝你学习愉快！如果在学习过程中遇到问题，欢迎查阅相关文档或寻求社区帮助。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;最后更新时间: 2024年&lt;/em&gt;&lt;/p&gt;
+
+    </h1>
+
+</body>
+
+</html>

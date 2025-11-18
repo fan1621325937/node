@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>WebSocket 客户端</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    #chat-box { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: scroll; margin-bottom: 10px; }
+    #message-input { width: 80%; padding: 8px; }
+    #send-button { padding: 8px 12px; }
+  </style>
+</head>
+<body>
+  <h1>WebSocket 客户端示例</h1>
+  <div id="chat-box"></div>
+  <input type="text" id="message-input" placeholder="输入消息...">
+  <button id="send-button">发送</button>
+
+  <script>
+    const chatBox = document.getElementById('chat-box');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+
+    // 连接 WebSocket 服务器
+    const socket = new WebSocket('ws://localhost:8080');
+
+    function logMessage(message) {
+      const p = document.createElement('p');
+      p.textContent = message;
+      chatBox.appendChild(p);
+      chatBox.scrollTop = chatBox.scrollHeight; // 自动滚动到底部
+    }
+
+    // 监听连接成功事件
+    socket.onopen = () => {
+      logMessage('已成功连接到服务器。');
+    };
+
+    // 监听接收消息事件
+    socket.onmessage = (event) => {
+      logMessage(`服务器: ${event.data}`);
+    };
+
+    // 监听连接关闭事件
+    socket.onclose = () => {
+      logMessage('已与服务器断开连接。');
+    };
+
+    // 监听错误事件
+    socket.onerror = (error) => {
+      logMessage('连接发生错误。');
+      console.error('WebSocket Error:', error);
+    };
+
+    // 发送消息
+    function sendMessage() {
+      const message = messageInput.value;
+      if (message.trim() !== '') {
+        socket.send(message);
+        logMessage(`你: ${message}`);
+        messageInput.value = '';
+      }
+    }
+
+    sendButton.addEventListener('click', sendMessage);
+    messageInput.addEventListener('keyup', (event) => {
+      if (event.key === 'Enter') {
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+</html>

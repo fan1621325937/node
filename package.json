@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-learning",
+  "version": "1.0.0",
+  "description": "Node.js学习示例项目",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "learning",
+    "tutorial"
+  ],
+  "author": "学习者",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^3.0.4",
+    "ejs": "^3.1.10",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.1",
+    "jsdom": "^27.0.0",
+    "marked": "^17.0.0",
+    "md5": "^2.3.0"
+  }
+}
