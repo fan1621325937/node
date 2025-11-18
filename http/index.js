@@ -24,6 +24,7 @@ const server = http.createServer((req, res) => {
 
   // 结束响应，并发送内容
   res.end("你好，世界！\n这是一个简单的 Node.js HTTP 服务器。\n");
+  
 });
 
 // 让服务器监听指定的端口和主机名
